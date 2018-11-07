@@ -13,7 +13,7 @@ sf.password = password_and_security_token
 sf.serverurl = https://test.salesforce.com
 ```
 
-how to
+how to 
 ----
 * `./package.xml`に設定しているメタデータをSF環境から`./retrieveUnpackaged`に取り込む
 ```
@@ -23,6 +23,18 @@ $ ant retrieveUnpackaged
 ```
 $ ant deploy
 ```
+
+step by step (for beginer)
+----
+1. `./build.properties` に、供給元Salesforce 組織のログイン情報と接続情報を入力します
+2. `./build.xml` でターゲットを作成します → 設定済
+3. `./package.xml` でプロジェクトマニフェストを作成します → 設定済が、必要メタデータのみを取得したい時は変更してください
+4. Ant 移行ツールを実行して、Salesforce からメタデータファイルを取得します → `$ ant retrieveUnpackaged`
+5. `./build.properties` にコピー先 Salesforce 組織のログイン情報と接続情報を入力します
+6. `./retrieveUnpackaged/`フォルダを参考して、必要メタデータファイルを`./deploy/`フォルダにCopyして、`./deploy/package.xml`を変更
+7. Ant 移行ツールを実行して、メタデータファイルを Salesforce にリリースします → `$ ant deploy`
+
+参考リンク: https://developer.salesforce.com/docs/atlas.ja-jp.216.0.daas.meta/daas/forcemigrationtool.htm
 
 ant install/setup 
 ----
