@@ -1,6 +1,14 @@
 ant migrate tool
 =====
 
+ant install/setup 
+----
+(one time only)
+* “java” command-line tool を使うので、JDKが必要です。 http://www.oracle.com/technetwork/java/javase/downloads
+    * JAVAをbrewでインストールなら `$ brew cask install java`
+* Apache Ant をインストール `$ brew install ant`
+* 設定→開発→ツール→「Force.com ツールおよびツールキット」→「Force.com Migration Tool」→ 「Force.com Migration Tool Download」から「version 42.0版」をダウンロード, `ant-salesforce.jar`は`~/.ant/lib/`フォルダに配置
+
 directory
 ----
 * `./source/`: deploy資源のdirectory
@@ -35,10 +43,3 @@ step by step (for beginer)
 7. Ant 移行ツールを実行して、メタデータファイルを Salesforce にリリースします → `$ ant deploy`
 
 参考リンク: https://developer.salesforce.com/docs/atlas.ja-jp.216.0.daas.meta/daas/forcemigrationtool.htm
-
-ant install/setup 
-----
-(one time only)
-* brew install ant
-* 設定→開発→ツール→「Force.com ツールおよびツールキット」→「Force.com Migration Tool」→ 「Force.com Migration Tool Download」から「version 38.0版」をダウンロード, `ant-salesforce.jar`は`~/.ant/lib/ant-salesforce.jar`に置く
-* “java” command-line tool を使うので、JDKが必要です。 http://www.oracle.com/technetwork/java/javase/downloads
